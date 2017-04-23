@@ -80,7 +80,7 @@
         
        # '\r\n Hello! You will now be guided through a setup to:\r\n\r\n 1. Set up configuration for a MySQL/MariaDB database\r\n 2. Set up a path for your playbooks (auto-created)\r\n 3. Run database Migrations\r\n 4. Set up initial seamphore user & password\r\n\r\n > DB Hostname (default 127.0.0.1:3306): ': "\n"
        
-      "> DB User (default root):" : "toor"
+      " > DB Hostname (default 127.0.0.1:3306): " : "toor"
         #timeout: 60
     echo: yes
   register: prompt
