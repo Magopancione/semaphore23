@@ -42,13 +42,13 @@
   action: service name=mysqld state=started
 
 
-#- name: update mysql root password for all root accounts
-#  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
-#  with_items:
-#    - "{{ ansible_hostname }}"
-#    - 127.0.0.1
-#    - ::1
-#    - localhost
+- name: update mysql root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
 
 
 - name: Install ansible
@@ -72,21 +72,21 @@
     permanent: true
     state: disabled
     
-- name: install semaphore
-  expect:
-    command: /usr/bin/semaphore -setup
-    responses:
+#- name: install semaphore
+#  expect:
+#    command: /usr/bin/semaphore -setup
+#    responses:
      #   ' > DB Hostname (default 127.0.0.1:3306): ': "\n"
         
        # '\r\n Hello! You will now be guided through a setup to:\r\n\r\n 1. Set up configuration for a MySQL/MariaDB database\r\n 2. Set up a path for your playbooks (auto-created)\r\n 3. Run database Migrations\r\n 4. Set up initial seamphore user & password\r\n\r\n > DB Hostname (default 127.0.0.1:3306): ': "\n"
        
-      " > DB Hostname (default 127.0.0.1:3306): " : "toor"
+#      " > DB Hostname (default 127.0.0.1:3306): " : "toor"
         #timeout: 60
-    echo: yes
-  register: prompt
+#    echo: yes
+ # register: prompt
     
-- debug:
-    var: prompt.stdout_lines       
+#- debug:
+#    var: prompt.stdout_lines       
         
      #   ' > DB User (default root): ': "\n"
      #   '> DB Password:': "semaphore\n"
@@ -106,11 +106,11 @@
   file: path=/var/semaphore state=directory 
 #    mode: 0750
 
-#- name: Create directory ssh
-#    file: path=/root/.ssh state=directory 
+- name: Create directory ssh
+    file: path=/root/.ssh state=directory 
 #    mode: 0750
 
-#- copy: src=files/config
-#        dest=/root/.ssh/config
+- copy: src=files/config
+        dest=/root/.ssh/config
 #        mode: 0750
  
