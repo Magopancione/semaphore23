@@ -1,2 +1,32 @@
 - name: Download a config file
   shell: curl -O https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
+
+
+
+- name: Install MySQL
+  action: yum name={{ item }}
+  with_items:
+    - MySQL-python
+    - mysql
+    - mysql-server
+
+- name: Start the MySQL service
+  action: service name=mysqld state=started
+
+
+- name: update mysql root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
+
+- name: delete anonymous MySQL server user for $server_hostname
+  action: mysql_user user="" host="{{ server_hostname }}" state="absent"
+
+- name: delete anonymous MySQL server user for localhost
+  action: mysql_user user="" state="absent"
+
+- name: remove the MySQL test database
+  action: mysql_db db=test state=absent
