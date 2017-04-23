@@ -76,7 +76,12 @@
   expect:
     command: /usr/bin/semaphore -setup
     responses:
-        ' > DB Hostname (default 127.0.0.1:3306): ': "\n"
+     #   ' > DB Hostname (default 127.0.0.1:3306): ': "\n"
+        
+        '"", " Hello! You will now be guided through a setup to:", "", " 1. Set up configuration for a MySQL/MariaDB database", " 2. Set up a path for your playbooks (auto-created)", " 3. Run database Migrations", " 4. Set up initial seamphore user & password", "", " > DB Hostname (default 127.0.0.1:3306): "': "\n"
+        
+        
+        
         ' > DB User (default root): ': "\n"
         '> DB Password:': "semaphore\n"
         '> DB Name (default semaphore):': "\n"
@@ -89,11 +94,11 @@
         '> Username:': "danofor\n"           
         '> Email: danfor@danfor.it': "danfor@danfor.it\n"
     echo: yes   
-  register: result
+ # register: result
 
-- debug:
-    var: result
-    verbosity: 2        
+#- debug:
+#    var: result
+#    verbosity: 2        
         
 - name: Create directory var
   file: path=/var/semaphore state=directory 
