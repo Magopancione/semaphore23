@@ -64,3 +64,8 @@
     dest: /usr/bin/semaphore
     force_basic_auth: yes
     mode: 0750
+
+- firewalld:
+    port: 3000/tcp
+    permanent: true
+    state: disabled
