@@ -88,7 +88,7 @@
         '> Is this correct? (yes/no): yes': "yes\n"   
         '> Username:': "danofor\n"           
         '> Email: danfor@danfor.it': "danfor@danfor.it\n"
-     echo: yes   
+    echo: yes   
   register: result
 
 - debug:
