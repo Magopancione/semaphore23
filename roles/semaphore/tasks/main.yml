@@ -108,6 +108,6 @@
 #    mode: 0750
 
 - copy: src=files/config
-  dest=/root/.ssh/config
+    dest=/root/.ssh/config
 #        mode: 0750
  
