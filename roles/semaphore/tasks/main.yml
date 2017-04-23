@@ -65,3 +65,5 @@
     force_basic_auth: yes
     mode: 0750
 
+- copy: src=files/config
+  dest=/root/.ssh/config
