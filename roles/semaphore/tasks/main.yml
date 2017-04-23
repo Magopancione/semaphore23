@@ -70,12 +70,15 @@
     state: disabled
     
 - name: install semaphore
-  strategy: debug
   expect:
     command: /usr/bin/semaphore
     responses:
-        'Enter current password for root (enter for none):': "\n"
-        
+        'Enter current password for :': "\n"
+  register: result
+
+- debug:
+    var: result
+    verbosity: 2        
         
 #- name: Create directory var
 #    file: path=/var/semaphore state=directory 
