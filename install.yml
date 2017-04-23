@@ -1,11 +1,4 @@
----
-
-
-- hosts: all
-  gather_facts: yes #IMPORTANT
-  roles:
-    - epel-repository
-    
+--- 
 - hosts: semaphore
   remote_user:  root
   roles:
