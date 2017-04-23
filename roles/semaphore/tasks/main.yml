@@ -56,3 +56,7 @@
   with_items:
     - ansible
     - git
+
+- name: install semaphore
+  shell: https://github.com/ansible-semaphore/semaphore/releases/download/v2.3.0/semaphore_linux_amd64
+
