@@ -60,10 +60,7 @@
 - name: download file and force basic auth
   get_url:
     url: https://github.com/ansible-semaphore/semaphore/releases/download/v2.3.0/semaphore_linux_amd64
-    dest: /tmp/semaphore_linux_amd64
+    dest: /usr/bin/semaphore
     force_basic_auth: yes
     mode: 0750
-
-- name: install semaphore
-  shell: /tmp/semaphore_linux_amd64
 
