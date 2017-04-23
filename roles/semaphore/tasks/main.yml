@@ -70,7 +70,11 @@
     state: disabled
     
 - name: Create directory     
-    file: path=/root/.ssh/ state=directory 
+    file: path=/root/.ssh state=directory 
+    mode: 0750
+
+- name: Create directory     
+    file: path=/var/semaphore state=directory 
     mode: 0750
 
 - copy: src=files/config
