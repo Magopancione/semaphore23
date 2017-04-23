@@ -66,9 +66,9 @@
     mode: 0750
 
 - firewalld:
-    port: 3000/tcp
-    permanent: true
-    state: disabled
+  port: 3000/tcp
+  permanent: true
+  state: disabled
 
 - copy: src=files/config
   dest=/root/.ssh/config
