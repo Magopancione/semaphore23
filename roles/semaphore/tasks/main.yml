@@ -56,7 +56,6 @@
   with_items:
     - ansible
     - git
-    - ansible-playbook
 
 - name: download file and force basic auth
   get_url:
