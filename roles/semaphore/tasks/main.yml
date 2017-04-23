@@ -87,7 +87,8 @@
         '> Enable LDAP authentication (y/n, default n):': "\n"   
         '> Is this correct? (yes/no): yes': "yes\n"   
         '> Username:': "danofor\n"           
-        '> Email: danfor@danfor.it': "danfor@danfor.it\n"            
+        '> Email: danfor@danfor.it': "danfor@danfor.it\n"
+     echo: yes   
   register: result
 
 - debug:
