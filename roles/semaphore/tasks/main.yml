@@ -68,8 +68,9 @@
     port: 3000/tcp
     permanent: true
     state: disabled
-
+    
 - name: install semaphore
+  strategy: debug
   expect:
     command: /usr/bin/semaphore
     responses:
