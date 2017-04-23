@@ -77,6 +77,17 @@
     command: /usr/bin/semaphore -setup
     responses:
         '> DB Hostname (default 127.0.0.1:3306):': "\n"
+        '> DB User (default root):': "\n"
+        '> DB Password:': "semaphore\n"
+        '> DB Name (default semaphore):': "\n"
+        '> Playbook path: /var/semaphore': "\n"
+        '> Web root URL (default http://localhost:8010/): ': "\n"
+        '> Enable email alerts (y/n, default n): ': "\n"        
+        '> Enable telegram alerts (y/n, default n):': "\n"        
+        '> Enable LDAP authentication (y/n, default n):': "\n"   
+        '> Is this correct? (yes/no): yes': "yes\n"   
+        '> Username:': "danofor\n"           
+        '> Email: danfor@danfor.it': "danfor@danfor.it\n"            
   register: result
 
 - debug:
