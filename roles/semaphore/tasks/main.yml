@@ -81,8 +81,8 @@
     var: result
     verbosity: 2        
         
-#- name: Create directory var
-#    file: path=/var/semaphore state=directory 
+- name: Create directory var
+  file: path=/var/semaphore state=directory 
 #    mode: 0750
 
 #- name: Create directory ssh
