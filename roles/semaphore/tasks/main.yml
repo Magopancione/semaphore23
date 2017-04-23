@@ -71,6 +71,6 @@
     
     
  # /root/.ssh/config
- - copy: src=files/config
-         dest=/root/.ssh/config
+- copy: src=files/config
+        dest=/root/.ssh/config
  
