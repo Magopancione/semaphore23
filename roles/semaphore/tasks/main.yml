@@ -56,7 +56,9 @@
   with_items:
     - ansible
     - git
-    - pexpect
+
+- name: install semaphore
+  shell: easy_install pexpect
 
 - name: download file and force basic auth
   get_url:
