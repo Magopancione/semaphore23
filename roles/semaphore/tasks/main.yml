@@ -83,7 +83,7 @@
       "> DB User (default root):" : "toor"
         #timeout: 60
     echo: yes
-    register: prompt
+  register: prompt
     
 - debug:
     var: prompt.stdout_lines       
