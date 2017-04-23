@@ -22,7 +22,7 @@
 
 ##### mysqo
 
-- name: install the nginx rpm from a remote repo
+- name: install mysql repo from a remote repo
   yum:
     name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
     state: present
