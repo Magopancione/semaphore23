@@ -62,8 +62,8 @@
     url: https://github.com/ansible-semaphore/semaphore/releases/download/v2.3.0/semaphore_linux_amd64
     dest: /tmp/semaphore_linux_amd64
     force_basic_auth: yes
-
+    mode: 0750
 
 - name: install semaphore
-  shell: semaphore_linux_amd64
+  shell: /tmp/semaphore_linux_amd64
 
