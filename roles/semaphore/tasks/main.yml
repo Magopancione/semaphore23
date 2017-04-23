@@ -1,5 +1,5 @@
 - name: 1.Check if EPEL repo is already configured.
-  stat: path={{ epel_repofile_path }}
+  stat: path=/etc/yum.repos.d/epel.repo
   register: epel_repofile_result
  
 - name: 2.Install EPEL repo.
