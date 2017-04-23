@@ -2,4 +2,5 @@
 - hosts: semaphore
   remote_user:  root
   roles:
+    - epel-repository  
     - semaphore
