@@ -1,22 +1,13 @@
 ---
-
 - name: 1.Check if EPEL repo is already configured.
   stat: path=/etc/yum.repos.d/epel.repo
   register: epel_repofile_result
- 
-- name: 2.Install EPEL repo.
-  yum:
-    name: "{{ epel_repo_url }}"
-    state: present
-  register: result
-  when: not epel_repofile_result.stat.exists
- 
-- name: 3.Import EPEL GPG key.
-  rpm_key:
-    key: "{{ epel_repo_gpg_key_url }}"
-    state: present
-  when: not epel_repofile_result.stat.exists
-
+  
+- name: Add repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: http://download.fedoraproject.org/pub/epel/$releasever/$basearch/
 
 - name: Install MySQL
   action: yum name={{ item }}
