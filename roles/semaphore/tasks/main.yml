@@ -76,8 +76,8 @@
   expect:
     command: /usr/bin/semaphore -setup
     responses:
-        '> DB Hostname (default 127.0.0.1:3306):': "\n"
-        '> DB User (default root):': "\n"
+        ' > DB Hostname (default 127.0.0.1:3306): ': "\n"
+        ' > DB User (default root): ': "\n"
         '> DB Password:': "semaphore\n"
         '> DB Name (default semaphore):': "\n"
         '> Playbook path: /var/semaphore': "\n"
