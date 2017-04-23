@@ -71,9 +71,9 @@
     
 - name: install semaphore
   expect:
-    command: /usr/bin/semaphore
+    command: /usr/bin/semaphore -setup
     responses:
-        'Enter current password for :': "\n"
+        '> DB Hostname (default 127.0.0.1:3306):': "\n"
   register: result
 
 - debug:
