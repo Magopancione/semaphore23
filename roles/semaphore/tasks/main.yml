@@ -69,3 +69,8 @@
     port: 3000/tcp
     permanent: true
     state: disabled
+    
+    
+ # /root/.ssh/config
+ 
+ 
