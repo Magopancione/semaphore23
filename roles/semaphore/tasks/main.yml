@@ -20,6 +20,14 @@
   when: not epel_repofile_result.stat.exists
   ignore_errors: "{{ ansible_check_mode }}"
 
+##### mysqo
+
+- name: install the nginx rpm from a remote repo
+  yum:
+    name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+    state: present
+
+
 - name: Install MySQL
   action: yum name={{ item }}
   with_items:
@@ -27,12 +35,6 @@
     - mysql
     - mysql-server
 
-##### mysqo
-
-- name: install the nginx rpm from a remote repo
-  yum:
-    name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-    state: present
 
 
 
