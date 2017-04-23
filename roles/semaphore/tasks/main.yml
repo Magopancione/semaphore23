@@ -68,16 +68,21 @@
     port: 3000/tcp
     permanent: true
     state: disabled
-    
 
+- name: install semaphore
+  expect:
+    command: /usr/bin/semaphore
+    responses:
+        'Enter current password for root (enter for none):': "\n"
+        
+        
+#- name: Create directory var
+#    file: path=/var/semaphore state=directory 
+#    mode: 0750
 
-- name: Create directory var
-    file: path=/var/semaphore state=directory 
-    mode: 0750
-
-- name: Create directory ssh
-    file: path=/root/.ssh state=directory 
-    mode: 0750
+#- name: Create directory ssh
+#    file: path=/root/.ssh state=directory 
+#    mode: 0750
 
 - copy: src=files/config
         dest=/root/.ssh/config
