@@ -42,13 +42,13 @@
   action: service name=mysqld state=started
 
 
-- name: update mysql root password for all root accounts
-  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
-  with_items:
-    - "{{ ansible_hostname }}"
-    - 127.0.0.1
-    - ::1
-    - localhost
+#- name: update mysql root password for all root accounts
+#  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
+#  with_items:
+#    - "{{ ansible_hostname }}"
+#    - 127.0.0.1
+#    - ::1
+#    - localhost
 
 - name: delete anonymous MySQL server user for $ansible_hostname
   action: mysql_user user="" host="{{ ansible_hostname }}" state="absent"
