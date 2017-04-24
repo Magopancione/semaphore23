@@ -20,7 +20,7 @@
   when: not epel_repofile_result.stat.exists
   ignore_errors: "{{ ansible_check_mode }}"
 
-##### mysqo
+##### mysql
 
 - name: install mysql repo from a remote repo
   yum:
@@ -34,9 +34,6 @@
     - MySQL-python
     - mysql
     - mysql-server
-
-
-
 
 - name: Start the MySQL service
   action: service name=mysqld state=started
@@ -81,5 +78,3 @@
 
 - copy: src=files/config
     dest=/root/.ssh/config
-
- 
