@@ -67,7 +67,9 @@
     force_basic_auth: yes
     mode: 0750
 
-- firewalld:
+- name: openfirewall
+  firewalld:
+    zone: dmz
     port: 3000/tcp
     permanent: true
     state: disabled
