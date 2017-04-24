@@ -9,12 +9,12 @@
         "port": "",
         "bugsnag_key": "",
         "tmp_path": "/var/semaphore",
-        "cookie_hash": "ZCb7ETkUCfCu9yi+1hdiOjMhggfRZ2e10QKhuOzRVJA=",
-        "cookie_encryption": "rqAmMShX4rLv1HyAdL5a72hDv7n0CALxPNI3VPERz1g=",
-        "email_alert": false,
-        "email_sender": "",
-        "email_host": "",
-        "email_port": "",
+        "cookie_hash": "fNbYav+35I8pOdDL/cwOqVvPl/YCgXzzwMQWDQ172yY=",
+        "cookie_encryption": "bh819FVNezLCkiGOg5CbvLgLra1l6HMSBwi+PXMspJ8=",
+        "email_alert": true,
+        "email_sender": "semaphore@localhost",
+        "email_host": "localhost",
+        "email_port": "25",
         "web_host": "http://localhost:8010/",
         "ldap_enable": false,
         "ldap_binddn": "",
@@ -30,6 +30,6 @@
                 "cn": ""
         },
         "telegram_alert": true,
-        "telegram_chat": "ansible",
-        "telegram_token": "dannysoftbot"
+        "telegram_chat": "",
+        "telegram_token": "352183496:AAEv_J_Z5z4LntSz_yt0qcevk22m0UP7hm4"
  }
