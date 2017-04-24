@@ -68,21 +68,18 @@
     mode: 0750
 
 - name: openfirewall
-  firewalld:
-    zone: dmz
-    port: 3000/tcp
-    permanent: true
-    state: disabled
+  shell: firewall-cmd --zone=public --add-port=3000/tcp  --permanent
 
-
+- name: reload openfirewall
+  shell: firewall-cmd --reload
+  
 - name: create directories var
   file: path=/var/semaphore state=directory     
         
-- name: Create directory ssh
+- name: Create directory ssh for no keyring
   file: path=/root/.ssh state=directory 
-#    mode: 0750
 
 - copy: src=files/config
     dest=/root/.ssh/config
-#        mode: 0750
+
  
