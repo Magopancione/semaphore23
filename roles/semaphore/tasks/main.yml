@@ -37,7 +37,7 @@
   yum:
     name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
     state: present
-  when: service_mysql_alredy_exist.changed  == false
+  when: service_mysql_alredy_exist.changed 
 
 - name: Install MySQL
   action: yum name={{ item }}
@@ -45,11 +45,11 @@
     - MySQL-python
     - mysql
     - mysql-server
-  when: service_mysql_alredy_exist.changed == false
+  when: service_mysql_alredy_exist.changed
 
 - name: Start the MySQL service
   action: service name=mysqld state=started
-  when: service_mysql_alredy_exist.changed  == false
+  when: service_mysql_alredy_exist.changed
 
 - name: update mysql root password for all root accounts
   mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
@@ -59,7 +59,7 @@
     - ::1
     - localhost
   ignore_errors: True
-  when: service_mysql_alredy_exist.changed  == false
+  when: service_mysql_alredy_exist.changed
 
 # END mysql
 
