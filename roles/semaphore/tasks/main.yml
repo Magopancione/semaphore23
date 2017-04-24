@@ -59,7 +59,7 @@
     - ::1
     - localhost
   ignore_errors: True
-  when: service_mysql_alredy_exist.changed
+  when: service_mysql_alredy_exist.changed == false
 
 # END mysql
 
