@@ -20,6 +20,10 @@
   when: not epel_repofile_result.stat.exists
   ignore_errors: "{{ ansible_check_mode }}"
 
+# enable chrony
+- name: Install chrony
+  yum: name=chrony
+
 ##### mysql
 
 - name: install mysql repo from a remote repo
@@ -28,16 +32,22 @@
     state: present
 
 
+- name: Check if Service Exists
+  stat: path=/etc/my.cnf
+  register: service_mysql_alredy_exist
+
+
 - name: Install MySQL
   action: yum name={{ item }}
   with_items:
     - MySQL-python
     - mysql
     - mysql-server
+  when: service_mysql_alredy_exist
 
 - name: Start the MySQL service
   action: service name=mysqld state=started
-
+  when: service_mysql_alredy_exist
 
 - name: update mysql root password for all root accounts
   mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
@@ -47,6 +57,8 @@
     - ::1
     - localhost
   ignore_errors: True
+  when: service_mysql_alredy_exist
+
 
 - name: Install ansible
   action: yum name={{ item }}
