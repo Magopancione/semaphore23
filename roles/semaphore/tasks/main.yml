@@ -24,18 +24,20 @@
 - name: Install chrony
   yum: name=chrony
 
+- name: Start the chrony service
+  action: service name=chrony state=started
+
 ##### mysql
+
+- name: Check if Service Exists
+  stat: path=/etc/my.cnf
+    register: service_mysql_alredy_exist.changed
 
 - name: install mysql repo from a remote repo
   yum:
     name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
     state: present
-
-
-- name: Check if Service Exists
-  stat: path=/etc/my.cnf
-  register: service_mysql_alredy_exist
-
+  when: service_mysql_alredy_exist.changed  == false
 
 - name: Install MySQL
   action: yum name={{ item }}
@@ -43,11 +45,11 @@
     - MySQL-python
     - mysql
     - mysql-server
-  when: service_mysql_alredy_exist
+  when: service_mysql_alredy_exist.changed == false
 
 - name: Start the MySQL service
   action: service name=mysqld state=started
-  when: service_mysql_alredy_exist
+  when: service_mysql_alredy_exist.changed  == false
 
 - name: update mysql root password for all root accounts
   mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
@@ -57,8 +59,9 @@
     - ::1
     - localhost
   ignore_errors: True
-  when: service_mysql_alredy_exist
+  when: service_mysql_alredy_exist.changed  == false
 
+# END mysql
 
 - name: Install ansible
   action: yum name={{ item }}
