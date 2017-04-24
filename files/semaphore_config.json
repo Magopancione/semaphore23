@@ -1,0 +1,35 @@
+#/var/semaphore/semaphore_config.json
+{
+        "mysql": {
+                "host": "127.0.0.1:3306",
+                "user": "root",
+                "pass": "semaphore",
+                "name": "semaphore"
+        },
+        "port": "",
+        "bugsnag_key": "",
+        "tmp_path": "/var/semaphore",
+        "cookie_hash": "ZCb7ETkUCfCu9yi+1hdiOjMhggfRZ2e10QKhuOzRVJA=",
+        "cookie_encryption": "rqAmMShX4rLv1HyAdL5a72hDv7n0CALxPNI3VPERz1g=",
+        "email_alert": false,
+        "email_sender": "",
+        "email_host": "",
+        "email_port": "",
+        "web_host": "http://localhost:8010/",
+        "ldap_enable": false,
+        "ldap_binddn": "",
+        "ldap_bindpassword": "",
+        "ldap_server": "",
+        "ldap_needtls": false,
+        "ldap_searchdn": "",
+        "ldap_searchfilter": "",
+        "ldap_mappings": {
+                "dn": "",
+                "mail": "",
+                "uid": "",
+                "cn": ""
+        },
+        "telegram_alert": true,
+        "telegram_chat": "ansible",
+        "telegram_token": "dannysoftbot"
+ }
