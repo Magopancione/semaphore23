@@ -31,7 +31,7 @@
 
 - name: Check if Service Exists
   stat: path=/etc/my.cnf
-    register: service_mysql_alredy_exist
+  register: service_mysql_alredy_exist
 
 - name: install mysql repo from a remote repo
   yum:
