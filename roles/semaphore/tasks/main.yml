@@ -73,55 +73,6 @@
     state: disabled
 
 
-
-
-
-
-- name: install semaphore
-  expect:
-    command: /usr/bin/semaphore -setup       #The script will return 4 response
-    responses:
-     '.*?:$': '12345'
-     '.*?:$': '12345'
-     '.*?:$': 'xena-warrior'
-     '.*?:$': '12345'
-    echo: yes
-  register: prompt
-    
-- debug:
-    var: prompt.stdout_lines   
-
-
-
-
-#- name: install semaphore
-#  expect:
-#    command: /usr/bin/semaphore -setup
-#    responses:
-     #   ' > DB Hostname (default 127.0.0.1:3306): ': "\n"
-        
-       # '\r\n Hello! You will now be guided through a setup to:\r\n\r\n 1. Set up configuration for a MySQL/MariaDB database\r\n 2. Set up a path for your playbooks (auto-created)\r\n 3. Run database Migrations\r\n 4. Set up initial seamphore user & password\r\n\r\n > DB Hostname (default 127.0.0.1:3306): ': "\n"
-       
-#      " > DB Hostname (default 127.0.0.1:3306): " : "toor"
-        #timeout: 60
-#    echo: yes
- # register: prompt
-    
-#- debug:
-#    var: prompt.stdout_lines       
-        
-     #   ' > DB User (default root): ': "\n"
-     #   '> DB Password:': "semaphore\n"
-     #   '> DB Name (default semaphore):': "\n"
-     #   '> Playbook path: /var/semaphore': "\n"
-     #   '> Web root URL (default http://localhost:8010/): ': "\n"
-     #   '> Enable email alerts (y/n, default n): ': "\n"        
-     #   '> Enable telegram alerts (y/n, default n):': "\n"        
-     #   '> Enable LDAP authentication (y/n, default n):': "\n"   
-     #   '> Is this correct? (yes/no): yes': "yes\n"   
-     #   '> Username:': "danofor\n"           
-     #   '> Email: danfor@danfor.it': "danfor@danfor.it\n"
- 
 - name: create directories var
   file: path=/var/semaphore state=directory     
         
