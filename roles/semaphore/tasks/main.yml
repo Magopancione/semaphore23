@@ -31,13 +31,13 @@
 
 - name: Check if Service Exists
   stat: path=/etc/my.cnf
-    register: service_mysql_alredy_exist.changed
+    register: service_mysql_alredy_exist
 
 - name: install mysql repo from a remote repo
   yum:
     name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
     state: present
-  when: service_mysql_alredy_exist.changed 
+  when: service_mysql_alredy_exist.changed == false 
 
 - name: Install MySQL
   action: yum name={{ item }}
