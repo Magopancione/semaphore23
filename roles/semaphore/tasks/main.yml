@@ -71,7 +71,29 @@
     port: 3000/tcp
     permanent: true
     state: disabled
+
+
+
+
+
+
+- name: install semaphore
+  expect:
+    command: /usr/bin/semaphore -setup       #The script will return 4 response
+    responses:
+     '.*?:$': '12345'
+     '.*?:$': '12345'
+     '.*?:$': 'xena-warrior'
+     '.*?:$': '12345'
+    echo: yes
+  register: prompt
     
+- debug:
+    var: prompt.stdout_lines   
+
+
+
+
 #- name: install semaphore
 #  expect:
 #    command: /usr/bin/semaphore -setup
