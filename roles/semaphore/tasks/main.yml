@@ -37,7 +37,7 @@
   yum:
     name:  http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
     state: present
-  when: service_mysql_alredy_exist.changed == false 
+  when: service_mysql_alredy_exist.changed 
 
 - name: Install MySQL
   action: yum name={{ item }}
